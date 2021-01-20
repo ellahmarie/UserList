@@ -1,0 +1,19 @@
+
+<div *ngIf="this.users.length > 0; else noUser">
+    <h1>Users</h1>
+    <ul class="list-group list-group-flush overflow-auto" *ngIf="users">
+        <li class="list-group-item" *ngFor="let user of users">
+            <p>{{user.lastname}}, {{user.firstname}} </p>
+            <p class="form-text text-muted" >{{user.email}}</p>
+            <div>
+                <a href="user/update/{{user.id}}">edit</a>
+                <a (click)="deleteUser(user.id)" class="text-danger col px-md-2">delete</a>
+            </div>
+
+        </li>
+    </ul>
+</div>
+<ng-template #noUser>
+    <h1>No user</h1>
+</ng-template>
+
